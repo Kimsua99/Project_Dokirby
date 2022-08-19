@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class LockPattern : MonoBehaviour
 {
@@ -12,17 +13,38 @@ public class LockPattern : MonoBehaviour
 
     private List<CircleIdentifier> lines;
 
+    public List<int> patternNums;
+
     private GameObject lineOnEdit;//가장 마지막(라인이 커서 따라 다님)
     private RectTransform lineOnEditRcTs;
     private CircleIdentifier circleOnEdit;
 
+    public RuntimeAnimatorController Line;
+    public RuntimeAnimatorController LineFalse;
+
+    List<int> SpringLock = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+    List<int> UmbrellaLock = new List<int> { 0, 1, 2, 4, 7 };
+    List<int> GrassLock = new List<int> { 6, 3, 0, 4, 2, 5, 8 };
+    List<int> ShovelLock = new List<int> { 0, 4, 2 };
+
+    public Sprite originCircle;
+
+    bool isSpringRight;
+    bool isUmbrellaRight;
+    bool isGrassRight;
+    bool isShovelRight;
+
     public bool unLocking;
+
+    public bool ColorGreen = false;
+    public bool ColorRed = false;
 
     bool enabled = true;
     void Start()
     {
         circles = new Dictionary<int, CircleIdentifier>();
         lines = new List<CircleIdentifier>();
+        patternNums = new List<int>();
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -54,11 +76,12 @@ public class LockPattern : MonoBehaviour
     {
         enabled = false;
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
 
         foreach (var circle in circles)
         {
-            circle.Value.GetComponent<UnityEngine.UI.Image>().color = Color.white;
+            //circle.Value.GetComponent<UnityEngine.UI.Image>().color = Color.white;
+            circle.Value.GetComponent<UnityEngine.UI.Image>().sprite = originCircle;
             circle.Value.GetComponent<Animator>().enabled = false;
         }
 
@@ -68,13 +91,22 @@ public class LockPattern : MonoBehaviour
         }
 
         lines.Clear();
+        patternNums.Clear();
 
         lineOnEdit = null;
         lineOnEditRcTs = null;
         circleOnEdit = null;
 
         enabled = true;
-        
+
+        isSpringRight = false;
+        isUmbrellaRight = false;
+        isGrassRight = false;
+        isShovelRight = false;
+
+        ColorGreen = false;
+        ColorRed = false;
+
     }
     GameObject CreateLine(Vector3 pos, int id)
     {
@@ -87,13 +119,15 @@ public class LockPattern : MonoBehaviour
 
         lineIdf.id = id;
 
-        lines.Add(lineIdf);
+        patternNums.Add(id);
 
+        lines.Add(lineIdf);
         return line;
     }
 
     void TrySetLineEdit(CircleIdentifier circle)//이미 선택한 원 다시 클릭한 경우 아이디가 같아서 라인 생성이 안되게 함.
     {
+        //Debug.Log(circle.id);
         foreach (var line in lines)
         {
             if (line.id == circle.id)
@@ -110,8 +144,16 @@ public class LockPattern : MonoBehaviour
     void EnableColorFade(Animator anim)
     {
         anim.enabled = true;
+        anim.runtimeAnimatorController = Line;
         anim.Rebind();
     }
+    void EnableColorRed(Animator anim)
+    {
+        anim.enabled = true;
+        anim.runtimeAnimatorController = LineFalse;
+        anim.Rebind();
+    }
+
     public void OnMouseEnterCircle(CircleIdentifier idf)
     {
         if (enabled == false)
@@ -135,7 +177,6 @@ public class LockPattern : MonoBehaviour
         {
             return;
         }
-        //Debug.Log(idf.id);
     }
 
     public void OnMouseDownCircle(CircleIdentifier idf)
@@ -144,37 +185,94 @@ public class LockPattern : MonoBehaviour
         {
             return;
         }
-        //Debug.Log(idf.id);
         unLocking = true;
 
         TrySetLineEdit(idf);
     }
 
+    public void ComparePattern()
+    {
+        isSpringRight = SpringLock.SequenceEqual(patternNums);
+        if (isSpringRight == true && (isUmbrellaRight == false || isGrassRight == false || isShovelRight == false))
+        {
+            ColorGreen = true;
+            FindObjectOfType<CharacterChange>().GetComponent<CharacterChange>().GetPattern("spring");
+        }
+
+
+        isUmbrellaRight = UmbrellaLock.SequenceEqual(patternNums);
+        if (isUmbrellaRight == true && (isSpringRight == false || isGrassRight == false || isShovelRight == false))
+        {
+            ColorGreen = true;
+            FindObjectOfType<CharacterChange>().GetComponent<CharacterChange>().GetPattern("Umbrella");
+        }
+
+
+        isGrassRight = GrassLock.SequenceEqual(patternNums);
+        if (isGrassRight == true && (isSpringRight == false || isUmbrellaRight == false || isShovelRight == false))
+        {
+            ColorGreen = true;
+            FindObjectOfType<CharacterChange>().GetComponent<CharacterChange>().GetPattern("Grass");
+        }
+
+
+        isShovelRight = ShovelLock.SequenceEqual(patternNums);
+        if (isShovelRight == true && (isSpringRight == false || isGrassRight == false || isUmbrellaRight == false))
+        {
+            ColorGreen = true;
+            FindObjectOfType<CharacterChange>().GetComponent<CharacterChange>().GetPattern("Shovel");
+        }
+        if (isSpringRight == false && isUmbrellaRight == false && isGrassRight == false && isShovelRight == false)
+        {
+            ColorRed = true;
+        }
+        
+    }
+
     public void OnMouseUpCircle(CircleIdentifier idf)
     {
+        ComparePattern();
+
         if (enabled == false)
         {
             return;
         }
         if (unLocking)
         {
-            foreach (var line in lines)
+            if (ColorGreen == true)
             {
-                EnableColorFade(circles[line.id].gameObject.GetComponent<Animator>());
+                foreach (var line in lines)
+                {
+                    EnableColorFade(circles[line.id].gameObject.GetComponent<Animator>());
+                }
+
+                Destroy(lines[lines.Count - 1].gameObject);
+                lines.RemoveAt(lines.Count - 1);
+
+                foreach (var line in lines)
+                {
+                    EnableColorFade(line.GetComponent<Animator>());
+                }
+                StartCoroutine(Release());
             }
 
-            Destroy(lines[lines.Count - 1].gameObject);
-            lines.RemoveAt(lines.Count - 1);
-
-            foreach (var line in lines)
+            if (ColorRed == true)
             {
-                EnableColorFade(line.GetComponent<Animator>());
-            }
+                foreach (var line in lines)
+                {
+                    EnableColorRed(circles[line.id].gameObject.GetComponent<Animator>());
+                }
 
-            StartCoroutine(Release());
+                Destroy(lines[lines.Count - 1].gameObject);
+                lines.RemoveAt(lines.Count - 1);
+
+                foreach (var line in lines)
+                {
+                    EnableColorRed(line.GetComponent<Animator>());
+                }
+                StartCoroutine(Release());
+            }
         }
         unLocking = false;
     }
-
-
 }

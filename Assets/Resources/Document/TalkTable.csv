@@ -1,0 +1,12 @@
+﻿TalkID,StringID,TalkType,NameStringID,ImageType,ImageID,AddImageType,AddImageID
+Talk_1,Talk_1_s1,2,Monster_t1,1,Image_Monster_2,0,-1
+Talk_2,Talk_1_s2,1,Kurbi_t1,1,Image_Kurbi_2,0,-1
+Talk_3,Talk_1_s3,2,Monster_t1,1,Image_Monster_2,0,-1
+Talk_4,Talk_1_s4,2,Monster_t1,2,Image_Monster_1,0,-1
+Talk_5,Talk_1_s5,1,Kurbi_t1,1,Image_Kurbi_2,0,-1
+Talk_6,Talk_1_s6,1,Kurbi_t1,2,Image_Kurbi_1,0,-1
+Talk_7,Talk_1_s7,2,Monster_t1,1,Image_Monster_1,1,Image_Talk_1
+Talk_8,Talk_1_s8,1,Kurbi_t1,1,Image_Kurbi_1,0,-1
+Talk_9,Talk_1_s9,2,Monster_t1,1,Image_Monster_2,0,-1
+Talk_10,Talk_1_s10,2,Monster_t1,2,Image_Monster_3,0,-1
+Talk_11,Talk_1_s11,1,Kurbi_t1,1,Image_Kurbi_1,1,Image_Talk_2

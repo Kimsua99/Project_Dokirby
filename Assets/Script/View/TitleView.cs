@@ -37,7 +37,6 @@ public class TitleView : UIView
                 return;
         }
 
-
         UpdateAll();
     }
 

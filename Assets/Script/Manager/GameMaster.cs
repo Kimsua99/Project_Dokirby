@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class GameMaster : Singletone<GameMaster>
 {
-    public float GameSpeed = 1f;        // 게임 스피드
+    public bool isGameEnd = false;
+    public float GameSpeed = 10f;        // 게임 스피드
 }

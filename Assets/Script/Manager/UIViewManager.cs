@@ -14,6 +14,9 @@ public enum View
     InValid = -1,
     //Main,     // 메인뷰는 비활성화되거나, 사라지지 않음
 
+    title,
+    play,
+
     Count
 }
 
@@ -30,9 +33,8 @@ public class UIViewManager : MonoBehaviour
     /// 각 생성된 뷰의 프리팹 원형 배열 과, 뷰가 만들어질 순서를 저장하는 viewStack
     /// 생성된 오브젝트는 SuibViews 오브젝트의 자식으로 들어갈 것
     /// </summary>
-    public Transform SubViews;
     public UIView LobbyView;
-    public List<UIView> SubViewList;
+    public List<GameObject> SubViewList;
 
     private void Awake()
     {
@@ -41,21 +43,29 @@ public class UIViewManager : MonoBehaviour
 
     public void GoView(View view, string initData, bool needImmediate = false, UnityAction closeAction = null)
     {
-        foreach (var subView in SubViewList)
+        ClearAllView();
+
+        // 메인뷰가 0이기에, -1 가중치 세팅
+        UIView subView = SubViewList[(int)view].GetComponent<UIView>();
+        subView.Show(initData, needImmediate, closeAction);
+    }
+    public void GoMain()
+    {
+        ClearAllView();
+    }
+    public void ClearAllView()
+    {
+        UIView subView = null;
+        foreach (var subViewObj in SubViewList)
         {
+            if (subViewObj == null)
+                continue;
+
+            subView = subViewObj.GetComponent<UIView>();
             if (subView == null)
                 continue;
 
             subView.close();
         }
-
-        // 메인뷰가 0이기에, -1 가중치 세팅
-        UIView selView = SubViewList[(int)view];
-        selView.Show(initData, needImmediate, closeAction);
-    }
-    public void GoMain()
-    {
-        foreach (var subView in SubViewList)
-            subView.close();
     }
 }

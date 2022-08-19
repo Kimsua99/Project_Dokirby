@@ -1,0 +1,136 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Dialogue : MonoBehaviour
+{
+
+    public bool DialogueStart = false;
+    public bool isDialogueEnd = false;
+
+    public int DSCnt = 0;
+
+    public Text text;
+    public GameObject Title;
+    public GameObject PersonLeft;
+    public GameObject PersonRight;
+
+    public List<string> DS;
+    public List<Sprite> Actor;
+    public List<Sprite> LeftSprite;
+    public List<Sprite> RightSprite;
+
+    public Sprite KirbyName;
+    public Sprite MonsterName;
+
+    public Sprite Alpa;
+    public Sprite Kirby1;
+    public Sprite Kirby2;
+    public Sprite Monster1;
+    public Sprite Monster2;
+    public Sprite Monster3;
+
+    private void Start()
+    {
+        DS = new List<string>();
+
+        DS.Add("ㅋㅋㅋ 야 저기 약골 지나간다~");
+        DS.Add("우씨.. 놀리지마!!");
+        DS.Add("쟨 화내도 귀엽네 ㅋㅋ 너가 그러고도 요괴야?");
+        DS.Add("ㅋㅋㅋ 약해 빠져가지구");
+        DS.Add("우씨…");
+        DS.Add("어떻게 하면 내 강함을 인정해 줄거야..?");
+        DS.Add("음.. 염라대왕 집 창고에 숨겨져있는 감투를 가져오면 \n 인정해 줄게");
+        DS.Add("…");
+        DS.Add("ㅋㅋㅋㅋ 야 말도 안..도…어ㅓ…어…어어..?");
+        DS.Add("야! 어디가?!");
+        DS.Add("(흥..! 내 강함을 입증해 보겠어!)");
+
+        Actor.Add(MonsterName);
+        Actor.Add(KirbyName);
+        Actor.Add(MonsterName);
+        Actor.Add(MonsterName);
+        Actor.Add(KirbyName);
+        Actor.Add(KirbyName);
+        Actor.Add(MonsterName);
+        Actor.Add(KirbyName);
+        Actor.Add(MonsterName);
+        Actor.Add(MonsterName);
+        Actor.Add(KirbyName);
+
+        LeftSprite.Add(Alpa);
+        LeftSprite.Add(Kirby2);
+        LeftSprite.Add(Alpa);
+        LeftSprite.Add(Alpa);
+        LeftSprite.Add(Kirby2);
+        LeftSprite.Add(Kirby1);
+        LeftSprite.Add(Alpa);
+        LeftSprite.Add(Kirby1);
+        LeftSprite.Add(Alpa);
+        LeftSprite.Add(Alpa);
+        LeftSprite.Add(Kirby1);
+
+        RightSprite.Add(Monster2);
+        RightSprite.Add(Alpa);
+        RightSprite.Add(Monster2);
+        RightSprite.Add(Monster1);
+        RightSprite.Add(Alpa);
+        RightSprite.Add(Alpa);
+        RightSprite.Add(Monster1);
+        RightSprite.Add(Alpa);
+        RightSprite.Add(Monster2);
+        RightSprite.Add(Monster3);
+        RightSprite.Add(Alpa);
+
+    }
+    public void NextDialogue()
+    {
+        DialogueStart = true;
+
+        StopAll();
+
+        StartCoroutine(NormalChat(DS[DSCnt]));
+        SetImage(DSCnt);
+
+        DSCnt++;
+        if (DSCnt == 11)
+        {
+            GameObject.Find("DialogPopup").SetActive(false);
+        }
+    }
+    IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
+    {
+        string writerText = "";
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
+        for (int a = 0; a < narration.Length; a++)
+        {
+            writerText += narration[a];
+
+            if (a + 1 == narration.Length)
+                isDialogueEnd = true;
+            else
+                isDialogueEnd = false;
+            text.text = writerText;
+            yield return new WaitForSeconds(0.08f);
+            yield return null;
+
+        }
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+    }
+
+    public void SetImage(int Cnt)
+    {
+        Title.GetComponent<Image>().sprite = Actor[Cnt];
+        Title.GetComponent<Image>().SetNativeSize();
+        PersonLeft.GetComponent<Image>().sprite = LeftSprite[Cnt];
+        PersonLeft.GetComponent<Image>().SetNativeSize();
+        PersonRight.GetComponent<Image>().sprite = RightSprite[Cnt];
+        PersonRight.GetComponent<Image>().SetNativeSize();
+    }
+    public void StopAll()
+    {
+        StopAllCoroutines();
+        //GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+    }
+}

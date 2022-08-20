@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayView : UIView
 {
+    public Text SpeedTxt;
+
     private void Awake()
     {
         initAction = Initialize;
@@ -31,5 +33,11 @@ public class PlayView : UIView
     private void UpdateUI()
     {
 
+    }
+
+
+    private void Update()
+    {
+        SpeedTxt.text =  $"{GameMaster.Instance.GameSpeed}m/sec";
     }
 }

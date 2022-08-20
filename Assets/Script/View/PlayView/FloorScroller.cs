@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FloorScroller : MonoBehaviour
 {
     public readonly int TrapGap = 4; // 螃.豭 瞰漁 + 綴蘊
-    public readonly int RainyGap = 5; // 綿寞選 除問
+    public readonly int RainyGap = 8; // 綿寞選 除問
 
     public Transform[] floors;
 

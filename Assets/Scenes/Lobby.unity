@@ -493,6 +493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 753776381}
   - component: {fileID: 753776382}
+  - component: {fileID: 753776383}
   m_Layer: 5
   m_Name: UIPopups
   m_TagString: Untagged
@@ -534,6 +535,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SubPopupList:
   - {fileID: 330634288}
+--- !u!210 &753776383
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753776380}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
 --- !u!1 &761665397
 GameObject:
   m_ObjectHideFlags: 0

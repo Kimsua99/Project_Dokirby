@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameMaster : Singletone<GameMaster>
 {
+    public static readonly float GameSpeedStop = 0f;
     public static readonly float GameSpeedSlow = 1f;
     public static readonly float GameSpeedNormal = 10f;
 
-    public enum PatternMode : int { Normal = 0, Spring, Grass, Umbrella, Count }
+    public enum PatternMode : int { Normal = 0, Spring, Umbrella, Grass, Count }
 
     public bool isGameEnd = false;
     public float GameSpeed;         // 게임 스피드
@@ -22,7 +23,7 @@ public class GameMaster : Singletone<GameMaster>
     public void ShufflePattern()
     {
         System.Random rand = new System.Random();
-        int randValue = (int)PatternMode.Spring;//rand.Next((int)PatternMode.Spring, (int)PatternMode.Count);
+        int randValue = rand.Next((int)PatternMode.Spring, (int)PatternMode.Umbrella + 1);
 
         PATTERN = (PatternMode)randValue;
     }

@@ -23,6 +23,9 @@ public class BGScroller : MonoBehaviour
 
     private void Update()
     {
+        if (GameMaster.Instance.isGameEnd)
+            return;
+
         for (int i = 0; i < backgrounds.Length; i++)
         {
             backgrounds[i].position += new Vector3(-GameMaster.Instance.GameSpeed, 0, 0) * Time.deltaTime;

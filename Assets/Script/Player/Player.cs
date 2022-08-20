@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 {
     public static UnityAction<string> PatternTriggerAction;
 
-
     [Header("Resource")]
     public Sprite[] PlayerAnim_Run;
 
@@ -34,6 +33,9 @@ public class Player : MonoBehaviour
     private float accTimeDelta;
     public void Update()
     {
+        if (GameMaster.Instance.isGameEnd)
+            return;
+
         WalkAnim();
     }
 
@@ -72,37 +74,61 @@ public class Player : MonoBehaviour
             GameMaster.Instance.PATTERN = patternChecker.PatternMode;
         }
 
-
         PatternReleaser patternReleaser = collision.gameObject.GetComponent<PatternReleaser>();
-        if(patternReleaser != null)
+        if (patternReleaser != null)
         {
             // 이동력 저하
             GameMaster.Instance.GameSpeed = GameMaster.GameSpeedNormal;
 
             // 패턴 세팅
             GameMaster.Instance.PATTERN = GameMaster.PatternMode.Normal;
-        }      
+
+            // 플레이어 상태 전환
+            mode = GameMaster.PatternMode.Normal;
+        }
+
+        DeadChecker deadChecker = collision.gameObject.GetComponent<DeadChecker>();
+        if (deadChecker != null)
+        {
+            if(GameMaster.Instance.PATTERN == GameMaster.PatternMode.Umbrella)
+            {
+                if (mode == GameMaster.PatternMode.Umbrella)
+                    return;
+                else
+                {
+                    // 산성비 => 사망처리
+                    GameMaster.Instance.GameSpeed = GameMaster.GameSpeedStop;
+                    GameMaster.Instance.isGameEnd = true;
+                }
+            }
+            if(GameMaster.Instance.PATTERN == GameMaster.PatternMode.Spring)
+            {
+                // 낙사 => 사망처리
+                GameMaster.Instance.GameSpeed = GameMaster.GameSpeedStop;
+                GameMaster.Instance.isGameEnd = true;
+            }
+        }
     }
 
 
 
     private void ActivatePattern(string pattern)
     {
+        if (GameMaster.Instance.isGameEnd)
+            return;
+
         if (GameMaster.Instance.PATTERN == GameMaster.PatternMode.Spring && pattern == "spring")
         {
             GameMaster.Instance.GameSpeed = GameMaster.GameSpeedNormal;
             rigidBody.AddForce(Vector2.up * 300f);
-        }
-        if (GameMaster.Instance.PATTERN == GameMaster.PatternMode.Grass && pattern == "grass")
-        {
-
+            mode = GameMaster.PatternMode.Normal;
         }
         if (GameMaster.Instance.PATTERN == GameMaster.PatternMode.Umbrella && pattern == "Umbrella")
         {
-
+            GameMaster.Instance.GameSpeed = GameMaster.GameSpeedNormal;
+            mode = GameMaster.PatternMode.Umbrella;
         }
 
-        // 실패
         GameMaster.Instance.PATTERN = GameMaster.PatternMode.Normal;
         CharmAnimator.Play("MoveRight");
 
@@ -112,7 +138,4 @@ public class Player : MonoBehaviour
     {
         GameMaster.Instance.ShufflePattern();
     }
-
-
-
 }

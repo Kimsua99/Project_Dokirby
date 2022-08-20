@@ -6,12 +6,15 @@ using UnityEngine.UI;
 public class FloorScroller : MonoBehaviour
 {
     public readonly int TrapGap = 4; // ¿À.¿Þ Àýº® + ºóÄ­
+    public readonly int RainyGap = 5; // ºø¹æ¿ï °£°Ý
+
     public Transform[] floors;
 
     private float leftPosX = 0f;
     private float rightPosX = 0f;
     private float xScreenHalfSize;
     private float yScreenHalfSize;
+
     private int TrapGapAcc = 0;
 
     // Start is called before the first frame update
@@ -44,36 +47,61 @@ public class FloorScroller : MonoBehaviour
                 if (floor == null)
                     continue;
 
-
-                // ÆÐÅÏ ¼¼ÆÃ
-                if (GameMaster.Instance.PATTERN == GameMaster.PatternMode.Spring)
+                switch (GameMaster.Instance.PATTERN)
                 {
-                    if (TrapGapAcc <= TrapGap)
-                    {
-                        if (TrapGapAcc == 0)
-                        {// ¿ÞÂÊ
-                            floor.Init(Floor.FloorIndex.Left);
-                        }
-                        else if (TrapGapAcc >= TrapGap)
-                        {// ¿À¸¥ÂÊ
-                            floor.Init(Floor.FloorIndex.Right);
+                    case GameMaster.PatternMode.Normal:
+                        floor.Init(GetRandMid());
+                        TrapGapAcc = 0;
+                        break;
+                    case GameMaster.PatternMode.Spring:
+                        if (TrapGapAcc <= TrapGap)
+                        {
+                            if (TrapGapAcc == 0)
+                            {// ¿ÞÂÊ
+                                floor.Init(Floor.FloorIndex.Left);
+                            }
+                            else if (TrapGapAcc >= TrapGap)
+                            {// ¿À¸¥ÂÊ
+                                floor.Init(Floor.FloorIndex.Right);
+                            }
+                            else
+                            {// ºóÄ­
+                                floor.Init(Floor.FloorIndex.None);
+                            }
+
+                            TrapGapAcc++;
                         }
                         else
-                        {// ºóÄ­
-                            floor.Init(Floor.FloorIndex.None);
+                        {
+                            floor.Init(GetRandMid());
                         }
+                        break;
+                    case GameMaster.PatternMode.Umbrella:
+                        if (TrapGapAcc <= RainyGap)
+                        {
+                            if (TrapGapAcc == 0)
+                            {// ¿ÞÂÊ
+                                floor.Init(Floor.FloorIndex.Mid_RainyStart);
+                            }
+                            else if (TrapGapAcc >= RainyGap)
+                            {// ¿À¸¥ÂÊ
+                                floor.Init(Floor.FloorIndex.Mid_RainyEnd);
+                            }
+                            else
+                            {// ºóÄ­
+                                floor.Init(GetRandRainyMid());
+                            }
 
-                        TrapGapAcc++;
-                    }
-                    else
-                    {
+                            TrapGapAcc++;
+                        }
+                        else
+                        {
+                            floor.Init(GetRandMid());
+                        }
+                        break;
+                    default:
                         floor.Init(GetRandMid());
-                    }
-                }
-                else
-                {
-                    floor.Init(GetRandMid());
-                    TrapGapAcc = 0;
+                        break;
                 }
             }
         }
@@ -85,5 +113,10 @@ public class FloorScroller : MonoBehaviour
         return (Floor.FloorIndex)rand.Next((int)Floor.FloorIndex.Mid1, (int)Floor.FloorIndex.Mid2 + 1);
     }
 
+    private Floor.FloorIndex GetRandRainyMid()
+    {
+        System.Random rand = new System.Random();
+        return (Floor.FloorIndex)rand.Next((int)Floor.FloorIndex.Mid1_Rainy, (int)Floor.FloorIndex.Mid2_Rainy + 1);
+    }
 
 }

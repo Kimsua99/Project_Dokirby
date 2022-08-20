@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     [Header("Resource")]
     public Sprite[] PlayerAnim_Run;
+    public Sprite[] PlayerAnimLanding;
 
     [Header("UI")]
     public Image PlayerImg;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
 
     [Header("Variable")]
     private GameMaster.PatternMode mode;
+    private bool isLanding = false;
 
 
     private void Awake()
@@ -26,9 +28,54 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
+
+        StartCoroutine(SuperHeroLanding());
+    }
+
+
+    // 인게임 연출
+    private IEnumerator SuperHeroLanding()
+    {
+        GameMaster.Instance.GameSpeed = 0f;
+        isLanding = true;
+
+        //FMODUnity.RuntimeManager.PlayOneShot();
+
+        PlayerImg.sprite = PlayerAnimLanding[0];
+        // Fall Down 2 sec
+        yield return new WaitForSeconds(2f);
+
+        PlayerImg.sprite = PlayerAnimLanding[1];
+        yield return new WaitForSeconds(0.25f);
+        PlayerImg.sprite = PlayerAnimLanding[2];
+        yield return new WaitForSeconds(0.25f);
+        PlayerImg.sprite = PlayerAnimLanding[3];
+        yield return new WaitForSeconds(0.25f);
+        PlayerImg.sprite = PlayerAnimLanding[4];
+        yield return new WaitForSeconds(0.25f);
+
+        // Landing 3 secs
+        //yield return new WaitForSeconds(1f);
+
+        PlayerImg.sprite = PlayerAnimLanding[5];
+        // Get Up 1 sec
+        yield return new WaitForSeconds(2f);
+
+        GameMaster.Instance.GameSpeed = GameMaster.GameSpeedNormal;
+        isLanding = false;
         Invoke(nameof(ShufflePattern), 5f);
     }
 
+
+
+
+
+
+
+
+
+
+    // 본게임
     private int curIndex = 0;
     private float accTimeDelta;
     public void Update()
@@ -41,6 +88,9 @@ public class Player : MonoBehaviour
 
     private void WalkAnim()
     {
+        if (isLanding)
+            return;
+
         accTimeDelta += Time.deltaTime;
         if (accTimeDelta >= 1 / GameMaster.Instance.GameSpeed)
         {
@@ -53,8 +103,6 @@ public class Player : MonoBehaviour
             accTimeDelta = 0f;
         }
     }
-
-
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -113,8 +161,6 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-
 
     private void ActivatePattern(string pattern)
     {

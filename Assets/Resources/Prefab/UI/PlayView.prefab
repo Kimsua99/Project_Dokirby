@@ -935,7 +935,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 48.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 138, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2398286493170786070
 CanvasRenderer:
@@ -1221,7 +1221,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: 15}
+  m_AnchoredPosition: {x: -450, y: 650}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2391911779956221487
@@ -1249,6 +1249,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f3b4f062f8034b34a8d925ebd63f7834, type: 3}
   - {fileID: 21300000, guid: 7d736f26b0473b149bf14fe4e49fec66, type: 3}
   - {fileID: 21300000, guid: 751313cc54d42214aa735bf638d857cf, type: 3}
+  PlayerAnimLanding:
+  - {fileID: 21300000, guid: f454e9ec431732a4db6eaaa7ef44e226, type: 3}
+  - {fileID: 21300000, guid: 65828c658c179514da3adde5a81b2df5, type: 3}
+  - {fileID: 21300000, guid: f904b8306c6a0174c8316e69ec7226ae, type: 3}
+  - {fileID: 21300000, guid: 5077dafcc91a44b4884042e4f22de2c6, type: 3}
+  - {fileID: 21300000, guid: d6e5a488d66fabe4391a29ace7c62e43, type: 3}
+  - {fileID: 21300000, guid: d9813a4e50819264eaf47f9fe140f56e, type: 3}
   PlayerImg: {fileID: 9093264346565459361}
   rigidBody: {fileID: 6898436394043162930}
   CharmAnimator: {fileID: 722772361518126670}
@@ -4285,6 +4292,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1406250571709531512, guid: bfde41491da7a4142a1650ea2e0b99f6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a40f8b40823c0f34fa1504b172813a72, type: 3}
     - target: {fileID: 2959884571876811927, guid: bfde41491da7a4142a1650ea2e0b99f6, type: 3}
       propertyPath: m_Name
       value: Floor2

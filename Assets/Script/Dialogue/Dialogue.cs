@@ -15,6 +15,8 @@ public class Dialogue : MonoBehaviour
     public GameObject Title;
     public GameObject PersonLeft;
     public GameObject PersonRight;
+    public GameObject CenterIMG;
+    public GameObject SceneEffect;
 
     public List<string> DS;
     public List<Sprite> Actor;
@@ -31,6 +33,11 @@ public class Dialogue : MonoBehaviour
     public Sprite Monster2;
     public Sprite Monster3;
 
+    public Sprite Scene1;
+    public Sprite Scene2;
+
+    public GameObject FadePanel;
+
     private void Start()
     {
         DS = new List<string>();
@@ -46,6 +53,7 @@ public class Dialogue : MonoBehaviour
         DS.Add("ㅋㅋㅋㅋ 야 말도 안..도…어ㅓ…어…어어..?");
         DS.Add("야! 어디가?!");
         DS.Add("(흥..! 내 강함을 입증해 보겠어!)");
+        DS.Add("");
 
         Actor.Add(MonsterName);
         Actor.Add(KirbyName);
@@ -57,6 +65,7 @@ public class Dialogue : MonoBehaviour
         Actor.Add(KirbyName);
         Actor.Add(MonsterName);
         Actor.Add(MonsterName);
+        Actor.Add(KirbyName);
         Actor.Add(KirbyName);
 
         LeftSprite.Add(Alpa);
@@ -70,6 +79,8 @@ public class Dialogue : MonoBehaviour
         LeftSprite.Add(Alpa);
         LeftSprite.Add(Alpa);
         LeftSprite.Add(Kirby1);
+        LeftSprite.Add(Alpa);
+
 
         RightSprite.Add(Monster2);
         RightSprite.Add(Alpa);
@@ -82,7 +93,9 @@ public class Dialogue : MonoBehaviour
         RightSprite.Add(Monster2);
         RightSprite.Add(Monster3);
         RightSprite.Add(Alpa);
+        RightSprite.Add(Alpa);
 
+        NextDialogue();
     }
     public void NextDialogue()
     {
@@ -94,9 +107,29 @@ public class Dialogue : MonoBehaviour
         SetImage(DSCnt);
 
         DSCnt++;
+
+        if (DSCnt == 7)
+        {
+            SceneEffect.SetActive(true);
+            CenterIMG.GetComponent<Image>().sprite = Scene1;
+            CenterIMG.GetComponent<Image>().SetNativeSize();
+
+        }
+        if (DSCnt == 8 || DSCnt == 9)
+        {
+            SceneEffect.SetActive(false);
+            CenterIMG.GetComponent<Image>().sprite = Alpa;
+
+        }
         if (DSCnt == 11)
         {
-            GameObject.Find("DialogPopup").SetActive(false);
+            SceneEffect.SetActive(true);
+            CenterIMG.GetComponent<Image>().sprite = Scene2;
+            CenterIMG.GetComponent<Image>().SetNativeSize();
+        }
+        if (DSCnt == 12)
+        {
+            GameObject.Find("DialogueView").SetActive(false);
         }
     }
     IEnumerator NormalChat(string narration)// 
@@ -132,5 +165,12 @@ public class Dialogue : MonoBehaviour
     {
         StopAllCoroutines();
         //GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+    }
+
+    public void Skip()
+    {
+        GameObject.Find("Skip").gameObject.SetActive(false);
+        GameObject.Find("DialogueView").gameObject.SetActive(false);
+        GameObject.Find("SubViews").transform.GetChild(0).gameObject.SetActive(true);
     }
 }

@@ -1,53 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9165982973258495344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/UI/UI_Okay
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/UI/UI_Okay
-  Guid:
-    Data1: -451112
-    Data2: 1295936725
-    Data3: 1119722124
-    Data4: 93786984
-  Banks:
-  - {fileID: -5824379719870284897}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-5824379719870284897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: KirbyAudio/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 637966066631663771
-  FileSizes:
-  - Name: Desktop
-    Value: 821536
-  Exists: 1
---- !u!114 &-5410336234978212182
+--- !u!114 &-6704908926321168909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,7 +19,7 @@ MonoBehaviour:
     Data3: -1632270417
     Data4: -1169544510
   Banks:
-  - {fileID: -5824379719870284897}
+  - {fileID: 8788547701974565844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -74,7 +27,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 991
---- !u!114 &-4553240624457664479
+--- !u!114 &-2407237143793571135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/BGMTitle
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/BGMTitle
+  Guid:
+    Data1: 1181669948
+    Data2: 1226545936
+    Data3: -440027006
+    Data4: -1048871401
+  Banks:
+  - {fileID: 8788547701974565844}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 28656
+--- !u!114 &-1929414857580893023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +73,7 @@ MonoBehaviour:
     Data3: -1877333834
     Data4: -40438770
   Banks:
-  - {fileID: -5824379719870284897}
+  - {fileID: 8788547701974565844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -101,7 +81,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-224596146451491173
+--- !u!114 &-4756948894455568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,16 +91,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/UI/UI_Back
+  m_Name: event:/SFX/SFX_Drawing
   m_EditorClassIdentifier: 
-  Path: event:/SFX/UI/UI_Back
+  Path: event:/SFX/SFX_Drawing
   Guid:
-    Data1: -571635301
-    Data2: 1287239889
-    Data3: -1530622080
-    Data4: 1884215688
+    Data1: -656733968
+    Data2: 1341434862
+    Data3: -1447031119
+    Data4: -509495753
   Banks:
-  - {fileID: -5824379719870284897}
+  - {fileID: 8788547701974565844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -141,79 +121,25 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 6089195436375750238}
-  - {fileID: -5824379719870284897}
+  - {fileID: 8543531881437446769}
+  - {fileID: 8788547701974565844}
   EditorEvents:
-  - {fileID: 6249786890783729250}
-  - {fileID: -4553240624457664479}
-  - {fileID: 4010535824042235258}
-  - {fileID: -224596146451491173}
-  - {fileID: -5410336234978212182}
-  - {fileID: 4120774732452153958}
-  - {fileID: -9165982973258495344}
-  - {fileID: 3138592090393132928}
+  - {fileID: -2407237143793571135}
+  - {fileID: -1929414857580893023}
+  - {fileID: 8151961886906847394}
+  - {fileID: 9135537712884638655}
+  - {fileID: -6704908926321168909}
+  - {fileID: 1656533440659706594}
+  - {fileID: 2358734154558548650}
+  - {fileID: -4756948894455568}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -5824379719870284897}
+  - {fileID: 8788547701974565844}
   StringsBanks:
-  - {fileID: 6089195436375750238}
+  - {fileID: 8543531881437446769}
   cacheTime: 637966066631681091
   cacheVersion: 10
---- !u!114 &3138592090393132928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/SFX_Drawing
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/SFX_Drawing
-  Guid:
-    Data1: -656733968
-    Data2: 1341434862
-    Data3: -1447031119
-    Data4: -509495753
-  Banks:
-  - {fileID: -5824379719870284897}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &4010535824042235258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BGM/BGMStageDefault
-  m_EditorClassIdentifier: 
-  Path: event:/BGM/BGMStageDefault
-  Guid:
-    Data1: -1254965610
-    Data2: 1080646042
-    Data3: -1565304426
-    Data4: 1780286416
-  Banks:
-  - {fileID: -5824379719870284897}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 60472
---- !u!114 &4120774732452153958
+--- !u!114 &1656533440659706594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,7 +158,7 @@ MonoBehaviour:
     Data3: -1538447202
     Data4: 1877393757
   Banks:
-  - {fileID: -5824379719870284897}
+  - {fileID: 8788547701974565844}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -240,7 +166,61 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6089195436375750238
+--- !u!114 &2358734154558548650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/UI/UI_Okay
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/UI/UI_Okay
+  Guid:
+    Data1: -451112
+    Data2: 1295936725
+    Data3: 1119722124
+    Data4: 93786984
+  Banks:
+  - {fileID: 8788547701974565844}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8151961886906847394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/BGMStageDefault
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/BGMStageDefault
+  Guid:
+    Data1: -1254965610
+    Data2: 1080646042
+    Data3: -1565304426
+    Data4: 1780286416
+  Banks:
+  - {fileID: 8788547701974565844}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 60472
+--- !u!114 &8543531881437446769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,7 +240,27 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1118
   Exists: 1
---- !u!114 &6249786890783729250
+--- !u!114 &8788547701974565844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: KirbyAudio/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 637966066631663771
+  FileSizes:
+  - Name: Desktop
+    Value: 821536
+  Exists: 1
+--- !u!114 &9135537712884638655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,20 +270,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/BGM/BGMTitle
+  m_Name: event:/SFX/UI/UI_Back
   m_EditorClassIdentifier: 
-  Path: event:/BGM/BGMTitle
+  Path: event:/SFX/UI/UI_Back
   Guid:
-    Data1: 1181669948
-    Data2: 1226545936
-    Data3: -440027006
-    Data4: -1048871401
+    Data1: -571635301
+    Data2: 1287239889
+    Data3: -1530622080
+    Data4: 1884215688
   Banks:
-  - {fileID: -5824379719870284897}
-  IsStream: 1
+  - {fileID: 8788547701974565844}
+  IsStream: 0
   Is3D: 0
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 28656
+  Length: 0

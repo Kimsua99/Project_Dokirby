@@ -7,7 +7,7 @@ public enum Popup
 {
     InValid = -1,
 
-    Dialog = 0,
+    Setting = 0,
 
 
     Count

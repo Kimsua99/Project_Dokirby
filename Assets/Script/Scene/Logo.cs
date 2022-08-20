@@ -81,6 +81,6 @@ public class Logo : MonoBehaviour
     public void OnClickMoveToLoadingScene()
     {
         StopAllCoroutines();
-        Loading.Instance.LoadScene(Headers.SCENE_NAME_LOBBY);
+        Loading.Instance.LoadScene(Headers.SCENE_NAME_Title);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 public class Headers
 {
     public static string SCENE_NAME_LOGO = "Logo";
+    public static string SCENE_NAME_Title = "Title";
     public static string SCENE_NAME_LOBBY = "Lobby";
 
     // 패킷 데이터 => 사용 안함

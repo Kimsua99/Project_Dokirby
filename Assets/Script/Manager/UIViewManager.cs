@@ -14,8 +14,9 @@ public enum View
     InValid = -1,
     //Main,     // 메인뷰는 비활성화되거나, 사라지지 않음
 
-    title,
+    tutorial,
     play,
+
 
     Count
 }

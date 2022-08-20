@@ -6,6 +6,6 @@ public class LobbyView : UIView
 {
     public void Start()
     {
-        UIViewManager.Instance.GoView(View.title, null);   
+        UIViewManager.Instance.GoView(View.tutorial, null);   
     }
 }

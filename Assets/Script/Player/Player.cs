@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rigidBody;
     public Animator CharmAnimator;
     public Animator PlayerUmbrellaSwayAnim;
+    public Animator PlayerChangeExplodeEffect;
 
     [Header("Variable")]
     private GameMaster.PatternMode mode;
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour
         PlayerImg.sprite = PlayerAnimLanding[0];
         // Fall Down 2 sec
         yield return new WaitForSeconds(2f);
+        PlayerChangeExplodeEffect.Play("Explode", -1, 0f);
 
         PlayerImg.sprite = PlayerAnimLanding[1];
         yield return new WaitForSeconds(0.25f);
@@ -159,7 +161,10 @@ public class Player : MonoBehaviour
                 mode = GameMaster.PatternMode.Normal;
 
             if (mode == GameMaster.PatternMode.Normal)
+            {
                 PlayerUmbrellaSwayAnim.enabled = false;
+                PlayerChangeExplodeEffect.Play("Explode", -1, 0f);
+            }
         }
 
         DeadChecker deadChecker = collision.gameObject.GetComponent<DeadChecker>();
@@ -199,6 +204,7 @@ public class Player : MonoBehaviour
         {
             rigidBody.AddForce(Vector2.up * 180f);
             mode = GameMaster.PatternMode.Normal;
+            PlayerChangeExplodeEffect.Play("Explode", -1, 0f);
         }
     }
 
@@ -234,13 +240,14 @@ public class Player : MonoBehaviour
         {
             GameMaster.Instance.GameSpeed = GameMaster.GameSpeedNormal;
             rigidBody.AddForce(Vector2.up * 300f);
+            PlayerChangeExplodeEffect.Play("Explode", -1, 0f);
             mode = GameMaster.PatternMode.Spring;
         }
         if (GameMaster.Instance.PATTERN == GameMaster.PatternMode.Umbrella && pattern == "Umbrella")
         {
             GameMaster.Instance.GameSpeed = GameMaster.GameSpeedNormal;
             mode = GameMaster.PatternMode.Umbrella;
-
+            PlayerChangeExplodeEffect.Play("Explode", -1, 0f);
             PlayerUmbrellaSwayAnim.enabled = true;
         }
 

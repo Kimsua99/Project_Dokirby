@@ -99,6 +99,8 @@ public class Player : MonoBehaviour
                     // ªÍº∫∫Ò => ªÁ∏¡√≥∏Æ
                     GameMaster.Instance.GameSpeed = GameMaster.GameSpeedStop;
                     GameMaster.Instance.isGameEnd = true;
+
+                    UIPopupManager.Instance.Show(Popup.Setting);
                 }
             }
             if(GameMaster.Instance.PATTERN == GameMaster.PatternMode.Spring)
@@ -106,6 +108,8 @@ public class Player : MonoBehaviour
                 // ≥´ªÁ => ªÁ∏¡√≥∏Æ
                 GameMaster.Instance.GameSpeed = GameMaster.GameSpeedStop;
                 GameMaster.Instance.isGameEnd = true;
+
+                UIPopupManager.Instance.Show(Popup.Setting);
             }
         }
     }

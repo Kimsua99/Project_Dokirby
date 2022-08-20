@@ -244,6 +244,9 @@ public class Player : MonoBehaviour
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayPlus("Spring");
             PlayerChangeExplodeEffect.Play("Explode", -1, 0f);
             mode = GameMaster.PatternMode.Spring;
+            CharmAnimator.Play("MoveRight");
+
+            GameMaster.Instance.PATTERN = GameMaster.PatternMode.Normal;
         }
         if (GameMaster.Instance.PATTERN == GameMaster.PatternMode.Umbrella && pattern == "Umbrella")
         {
@@ -251,10 +254,10 @@ public class Player : MonoBehaviour
             mode = GameMaster.PatternMode.Umbrella;
             PlayerChangeExplodeEffect.Play("Explode", -1, 0f);
             PlayerUmbrellaSwayAnim.enabled = true;
-        }
+            CharmAnimator.Play("MoveRight");
 
-        GameMaster.Instance.PATTERN = GameMaster.PatternMode.Normal;
-        CharmAnimator.Play("MoveRight");
+            GameMaster.Instance.PATTERN = GameMaster.PatternMode.Normal;
+        }
 
         Invoke(nameof(ShufflePattern), 5f);
     }

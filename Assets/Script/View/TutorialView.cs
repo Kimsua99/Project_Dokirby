@@ -64,17 +64,20 @@ public class TutorialView : UIView
 
     public void OnClickNextBtn()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Click");
         curPopupIdx++;
         UpdateAll();
     }
     public void OnClickPrevBtn()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Click");
         curPopupIdx--;
         UpdateAll();
     }
 
     public void OnClickSkipBtn()
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Back");
         UIViewManager.Instance.GoView(View.play, null);
     }
     public void OnClickStartBtn()

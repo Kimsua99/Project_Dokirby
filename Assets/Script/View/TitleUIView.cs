@@ -6,13 +6,15 @@ using JsonFx.Json;
 using UnityEngine.SceneManagement;
 public class TitleUIView : UIView
 {
-    public AudioClip StartBtn;
     public GameObject FadePannel;
     public class ClassData
     {
 
     }
-
+    public void Start()
+    {
+        GameObject.Find("BGMSource").GetComponent<AudioSource>().Play();
+    }
 
     [Header("UI")]
     //public Text Title;
@@ -64,9 +66,7 @@ public class TitleUIView : UIView
 
     public void OnClickStartBtn()
     {
-        GameObject.Find("SFXManager").GetComponent<AudioSource>().Play();
-        //UIViewManager.Instance.GoView(View.play, null);
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Start");
         GameObject.Find("Panel").gameObject.SetActive(false);
 
         Invoke("SceneChange", 1f);

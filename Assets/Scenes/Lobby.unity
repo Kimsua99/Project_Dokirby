@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 237289759}
   - component: {fileID: 237289758}
   - component: {fileID: 237289757}
-  - component: {fileID: 237289760}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -214,36 +213,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &237289760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237289756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1181669948
-      Data2: 1226545936
-      Data3: -440027006
-      Data4: -1048871401
-    Path: event:/BGM/BGMTitle
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &552174441
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +428,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &881537967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7556622506282623774, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
+  m_PrefabInstance: {fileID: 6852774852051641714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &881537972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881537967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1577480240
+      Data2: 1332577770
+      Data3: -1538447202
+      Data4: 1877393757
+    Path: event:/SFX/SFX_DokirbyChange
+  Event: 
+  PlayEvent: 3
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1974227804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1067,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6859702667677991229, guid: 33ab72fae5fa44b42ba90c0fc87eacf9, type: 3}
   m_PrefabInstance: {fileID: 1133347511638916319}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1133347511638916324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133347511638916321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1254965610
+      Data2: 1080646042
+      Data3: -1565304426
+      Data4: 1780286416
+    Path: event:/BGM/BGMStageDefault
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &6852774852051641714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1230,3 +1264,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6567961226539826109, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
   m_PrefabInstance: {fileID: 6852774852051641714}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6852774852051641719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852774852051641716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1181669948
+      Data2: 1226545936
+      Data3: -440027006
+      Data4: -1048871401
+    Path: event:/BGM/BGMTitle
+  Event: 
+  PlayEvent: 1
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

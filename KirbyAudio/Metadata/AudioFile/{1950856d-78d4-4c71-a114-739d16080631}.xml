@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{760028d6-192c-43d1-adde-fb0c326c8ba4}">
+	<object class="AudioFile" id="{1950856d-78d4-4c71-a114-739d16080631}">
 		<property name="assetPath">
-			<value>SFX_Spring_3MSL.wav</value>
+			<value>SFX_UI_Back.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.78659863945578234</value>
+			<value>0.10832199546485261</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{99972108-f6a0-47c8-82d0-4fb6fa95bf14}</destination>

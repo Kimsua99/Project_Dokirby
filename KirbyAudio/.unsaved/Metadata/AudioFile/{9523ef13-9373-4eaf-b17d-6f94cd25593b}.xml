@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9523ef13-9373-4eaf-b17d-6f94cd25593b}">
+		<property name="assetPath">
+			<value>BGM_NiconiKirby_Map2.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>60.472458333333336</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{99972108-f6a0-47c8-82d0-4fb6fa95bf14}</destination>
+		</relationship>
+	</object>
+</objects>

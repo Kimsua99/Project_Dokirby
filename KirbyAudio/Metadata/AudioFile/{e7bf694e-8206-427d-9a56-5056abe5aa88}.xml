@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e7bf694e-8206-427d-9a56-5056abe5aa88}">
+		<property name="assetPath">
+			<value>SFX_Spring_2MSL.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.50546485260770979</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{99972108-f6a0-47c8-82d0-4fb6fa95bf14}</destination>
+		</relationship>
+	</object>
+</objects>

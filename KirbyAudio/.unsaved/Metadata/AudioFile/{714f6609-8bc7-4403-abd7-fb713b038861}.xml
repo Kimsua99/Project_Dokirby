@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{714f6609-8bc7-4403-abd7-fb713b038861}">
+		<property name="assetPath">
+			<value>SFX_DokirbyChange_MSL.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>2.375</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{99972108-f6a0-47c8-82d0-4fb6fa95bf14}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -62,13 +62,9 @@ public class LockPattern : MonoBehaviour
     {
         if (unLocking)
         {
-            Vector3 mousePos = LockPanel.transform.InverseTransformPoint(Input.mousePosition);
-
-            lineOnEditRcTs.sizeDelta = new Vector2(lineOnEditRcTs.sizeDelta.x, Vector3.Distance(mousePos, circleOnEdit.transform.localPosition));
-
-            lineOnEditRcTs.rotation = Quaternion.FromToRotation(
-                Vector3.up,
-                (mousePos - circleOnEdit.transform.localPosition).normalized);
+            //Vector3 mousePos = LockPanel.transform.TransformPoint(Input.mousePosition);
+            //lineOnEditRcTs.sizeDelta = new Vector2(lineOnEditRcTs.sizeDelta.x, Vector3.Distance(mousePos, circleOnEdit.transform.localPosition));
+            //lineOnEditRcTs.rotation = Quaternion.FromToRotation(Vector3.up, (mousePos - circleOnEdit.transform.localPosition).normalized);
         }
     }
 

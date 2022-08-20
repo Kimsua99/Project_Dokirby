@@ -79,9 +79,15 @@ public class TutorialView : UIView
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Back");
         UIViewManager.Instance.GoView(View.play, null);
+        Invoke("FallSFX", 0.25f);
     }
     public void OnClickStartBtn()
     {
         Loading.Instance.LoadScene("Lobby");
+    }
+
+    public void FallSFX()
+    {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Drop");
     }
 }

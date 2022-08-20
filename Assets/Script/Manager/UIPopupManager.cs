@@ -36,6 +36,7 @@ public class UIPopupManager : MonoBehaviour
         UIPopup uiPopup = SubPopupList[(int)popup].GetComponent<UIPopup>();
         if (uiPopup == null)
             return;
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("GG");
 
         uiPopup.Show(data, doImmediately, closeAction);
     }

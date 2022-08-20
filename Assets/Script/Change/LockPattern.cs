@@ -40,6 +40,7 @@ public class LockPattern : MonoBehaviour
     public bool ColorRed = false;
 
     bool enabled = true;
+
     void Start()
     {
         circles = new Dictionary<int, CircleIdentifier>();
@@ -110,6 +111,18 @@ public class LockPattern : MonoBehaviour
     }
     GameObject CreateLine(Vector3 pos, int id)
     {
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Brush");
+
+        if (GameObject.FindObjectOfType<SoundManager>().GetComponent<SoundManager>().isBrush1 == true)
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Brush1");
+        }
+        if (GameObject.FindObjectOfType<SoundManager>().GetComponent<SoundManager>().isBrush2 == true)
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Brush2");
+        }
+      
+
         var line = GameObject.Instantiate(linePrefab, LockPanel.transform);
 
         line.transform.localPosition = pos;
@@ -197,6 +210,7 @@ public class LockPattern : MonoBehaviour
         {
             ColorGreen = true;
             FindObjectOfType<CharacterChange>().GetComponent<CharacterChange>().GetPattern("spring");
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Change");
         }
 
 
@@ -205,6 +219,7 @@ public class LockPattern : MonoBehaviour
         {
             ColorGreen = true;
             FindObjectOfType<CharacterChange>().GetComponent<CharacterChange>().GetPattern("Umbrella");
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Change");
         }
 
 
@@ -225,6 +240,8 @@ public class LockPattern : MonoBehaviour
         if (isSpringRight == false && isUmbrellaRight == false && isGrassRight == false && isShovelRight == false)
         {
             ColorRed = true;
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("ChangeX");
+
         }
         
     }

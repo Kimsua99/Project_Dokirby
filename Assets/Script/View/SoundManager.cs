@@ -6,6 +6,8 @@ public class SoundManager : MonoBehaviour
 {
     AudioSource sfxAudioSource;
     AudioSource TypeAudioSource;
+    AudioSource SfxPlusAudioSource;
+
 
     public AudioClip click;
     public AudioClip start;
@@ -16,18 +18,30 @@ public class SoundManager : MonoBehaviour
     public AudioClip GType;
     public AudioClip KType;
     public AudioClip Change;
+    public AudioClip ChangeX;
     public AudioClip Spring1;
     public AudioClip Spring2;
     public AudioClip Spring3;
+    public AudioClip Drop;
+    public AudioClip Rain;
+    public AudioClip GG;
+    public AudioClip Walk;
 
-    public AudioClip Title;
-    public AudioClip Main;
+    public bool isBrush1 = false;
+    public bool isBrush2 = false;
+
+    public int n;
+    public int m;
+
+    //public AudioClip Title;
+    //public AudioClip Main;
 
     // Start is called before the first frame update
     void Start()
     {
         sfxAudioSource = this.transform.GetChild(0).gameObject.GetComponent<AudioSource>();
         TypeAudioSource = this.transform.GetChild(1).gameObject.GetComponent<AudioSource>();
+        SfxPlusAudioSource = this.transform.GetChild(3).gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,43 +70,54 @@ public class SoundManager : MonoBehaviour
                 break;
 
             case "Brush":
-                int n = Random.Range(1, 3);
+                n = Random.Range(1, 3);
                 if (n == 1)
                 {
-                    sfxAudioSource.clip = brush1;
-                    sfxAudioSource.loop = false;
+                    isBrush1 = true;
+                    isBrush2 = false;
+
                 }
 
                 if (n == 2)
                 {
-                    sfxAudioSource.clip = brush2;
-                    sfxAudioSource.loop = false;
+                    isBrush1 = false;
+                    isBrush2 = true;
                 }
                 break;
 
             case "Change":
                 sfxAudioSource.clip = Change;
-                sfxAudioSource.loop = true;
+                sfxAudioSource.loop = false;
                 break;
 
-            case "Spring":
-                int m = Random.Range(1, 4);
-                if (m == 1)
-                {
-                    sfxAudioSource.clip = Spring1;
-                    sfxAudioSource.loop = false;
-                }
+            case "ChangeX":
+                sfxAudioSource.clip = ChangeX;
+                sfxAudioSource.loop = false;
+                break;
 
-                if (m == 2)
-                {
-                    sfxAudioSource.clip = Spring2;
-                    sfxAudioSource.loop = false;
-                }
-                if (m == 3)
-                {
-                    sfxAudioSource.clip = Spring2;
-                    sfxAudioSource.loop = false;
-                }
+            case "Drop":
+                sfxAudioSource.clip = Drop;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "Rain":
+                sfxAudioSource.clip = Rain;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "GG":
+                sfxAudioSource.clip = GG;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "Brush1":
+                sfxAudioSource.clip = brush1;
+                sfxAudioSource.loop = false;
+                break;
+
+            case "Brush2":
+                sfxAudioSource.clip = brush2;
+                sfxAudioSource.loop = false;
                 break;
 
         }
@@ -112,8 +137,40 @@ public class SoundManager : MonoBehaviour
                 TypeAudioSource.clip = GType;
                 TypeAudioSource.loop = true;
                 break;
+
+            case "Walk":
+                TypeAudioSource.clip = Walk;
+                TypeAudioSource.loop = false;
+                break;
         }
         TypeAudioSource.Play();
+    }
+
+    public void PlayPlus(string action)
+    { 
+        switch(action)
+        {
+            case "Spring":
+                m = Random.Range(1, 4);
+                if (m == 1)
+                {
+                    SfxPlusAudioSource.clip = Spring1;
+                    SfxPlusAudioSource.loop = false;
+                }
+
+                if (m == 2)
+                {
+                    SfxPlusAudioSource.clip = Spring2;
+                    SfxPlusAudioSource.loop = false;
+                }
+                if (m == 3)
+                {
+                    SfxPlusAudioSource.clip = Spring2;
+                    SfxPlusAudioSource.loop = false;
+                }
+                break;
+        }
+        SfxPlusAudioSource.Play();
     }
 
     public void SFXStop()

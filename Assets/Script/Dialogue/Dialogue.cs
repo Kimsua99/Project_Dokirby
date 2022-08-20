@@ -38,6 +38,9 @@ public class Dialogue : MonoBehaviour
 
     public GameObject FadePanel;
 
+    public bool KSpeak = false;
+    public bool MSpeak = false;
+
     private void Start()
     {
         DS = new List<string>();
@@ -97,6 +100,19 @@ public class Dialogue : MonoBehaviour
 
         NextDialogue();
     }
+    public void Update()
+    {
+        if (Title.GetComponent<Image>().sprite == KirbyName)
+        {
+            KSpeak = true;
+            MSpeak = false;
+        }
+        if (Title.GetComponent<Image>().sprite == MonsterName)
+        {
+            KSpeak = false;
+            MSpeak = true;
+        }
+    }
     public void NextDialogue()
     {
         DialogueStart = true;
@@ -135,14 +151,34 @@ public class Dialogue : MonoBehaviour
     IEnumerator NormalChat(string narration)// 
     {
         string writerText = "";
-        if (Title.GetComponent<Image>().sprite = Actor[1])
-        {
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("KType");
-        }
-        else if (Title.GetComponent<Image>().sprite = Actor[0])
-        {
+        if (DSCnt == 0)
             GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("GType");
-        }
+        if (DSCnt == 1)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("KType");
+        if (DSCnt == 2)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("GType");
+        if (DSCnt == 3)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("GType");
+        if (DSCnt == 4)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("KType");
+        if (DSCnt == 5)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("KType");
+        if (DSCnt == 6)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("GType");
+        if (DSCnt == 7)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("KType");
+        if (DSCnt == 8)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("GType");
+        if (DSCnt == 9)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("GType");
+        if (DSCnt == 10)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("KType");
+        if (DSCnt == 11)
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("KType");
+
+
+
+
         for (int a = 0; a < narration.Length; a++)
         {
             writerText += narration[a];

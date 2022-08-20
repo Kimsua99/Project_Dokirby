@@ -120,6 +120,7 @@ public class Player : MonoBehaviour
                 curIndex = 0;
 
             PlayerImg.sprite = sprites[curIndex];
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("Walk");
             if (curIndex >= sprites.Length - 1)
                 curIndex = 0;
             else
@@ -240,6 +241,7 @@ public class Player : MonoBehaviour
         {
             GameMaster.Instance.GameSpeed = GameMaster.GameSpeedNormal;
             rigidBody.AddForce(Vector2.up * 300f);
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().PlayPlus("Spring");
             PlayerChangeExplodeEffect.Play("Explode", -1, 0f);
             mode = GameMaster.PatternMode.Spring;
         }

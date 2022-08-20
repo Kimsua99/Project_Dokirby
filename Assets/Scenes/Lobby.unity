@@ -1124,6 +1124,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2691621841173101286, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691621841173101286, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691621841173101286, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691621841173101286, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691621841173101286, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691621841173101286, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TitleView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691621841173101286, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6567961226539826109, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
       propertyPath: m_Name
       value: TitleView
@@ -1264,33 +1292,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6567961226539826109, guid: 7e91c4576c4e4b041b4ede22dbdaf0bb, type: 3}
   m_PrefabInstance: {fileID: 6852774852051641714}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6852774852051641719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6852774852051641716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1181669948
-      Data2: 1226545936
-      Data3: -440027006
-      Data4: -1048871401
-    Path: event:/BGM/BGMTitle
-  Event: 
-  PlayEvent: 1
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20

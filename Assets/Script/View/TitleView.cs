@@ -27,7 +27,7 @@ public class TitleView : UIView
     }
 
 
-    // 초기화
+    // ??????
     private void Initialize(string data)
     {
         if (data != null)
@@ -45,12 +45,12 @@ public class TitleView : UIView
         UpdateData();
         UpdateUI();
     }
-    // 데이터 갱신
+    // ?????? ????
     private void UpdateData()
     {
         title = "DoKirby";
     }
-    // ui 갱신
+    // ui ????
     private void UpdateUI()
     {
         //Title.text = title;

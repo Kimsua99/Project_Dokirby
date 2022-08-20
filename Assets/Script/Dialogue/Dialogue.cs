@@ -100,7 +100,7 @@ public class Dialogue : MonoBehaviour
     public void NextDialogue()
     {
         DialogueStart = true;
-
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Click");
         StopAll();
 
         StartCoroutine(NormalChat(DS[DSCnt]));
@@ -135,7 +135,14 @@ public class Dialogue : MonoBehaviour
     IEnumerator NormalChat(string narration)// 
     {
         string writerText = "";
-        //GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");
+        if (Title.GetComponent<Image>().sprite = Actor[1])
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("KType");
+        }
+        else if (Title.GetComponent<Image>().sprite = Actor[0])
+        {
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("GType");
+        }
         for (int a = 0; a < narration.Length; a++)
         {
             writerText += narration[a];
@@ -149,7 +156,7 @@ public class Dialogue : MonoBehaviour
             yield return null;
 
         }
-        //GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
+        GameObject.Find("SoundManager").GetComponent<SoundManager>().typeStop();
     }
 
     public void SetImage(int Cnt)

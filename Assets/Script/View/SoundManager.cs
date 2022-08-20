@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     AudioSource sfxAudioSource;
-    AudioSource typeAudioSource;
+    AudioSource TypeAudioSource;
 
     public AudioClip click;
     public AudioClip start;
@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         sfxAudioSource = this.transform.GetChild(0).gameObject.GetComponent<AudioSource>();
-        typeAudioSource = this.transform.GetChild(1).gameObject.GetComponent<AudioSource>();
+        TypeAudioSource = this.transform.GetChild(1).gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -104,16 +104,16 @@ public class SoundManager : MonoBehaviour
         switch (action)
         {
             case "KType":
-                sfxAudioSource.clip = KType;
-                sfxAudioSource.loop = true;
+                TypeAudioSource.clip = KType;
+                TypeAudioSource.loop = true;
                 break;
 
             case "GType":
-                sfxAudioSource.clip = GType;
-                sfxAudioSource.loop = true;
+                TypeAudioSource.clip = GType;
+                TypeAudioSource.loop = true;
                 break;
         }
-        typeAudioSource.Play();
+        TypeAudioSource.Play();
     }
 
     public void SFXStop()
@@ -123,6 +123,6 @@ public class SoundManager : MonoBehaviour
 
     public void typeStop()
     {
-        typeAudioSource.Stop();
+        TypeAudioSource.Stop();
     }
 }

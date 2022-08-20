@@ -27,7 +27,7 @@ public class PlayView : UIView
 
     private void UpdateData()
     {
-        GameMaster.Instance.GameSpeed = 10f;
+        GameMaster.Instance.GameSpeed = GameMaster.GameSpeedNormal;
     }
     private void UpdateUI()
     {

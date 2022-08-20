@@ -67,6 +67,12 @@ public class TutorialView : UIView
         curPopupIdx++;
         UpdateAll();
     }
+    public void OnClickPrevBtn()
+    {
+        curPopupIdx--;
+        UpdateAll();
+    }
+
     public void OnClickSkipBtn()
     {
         UIViewManager.Instance.GoView(View.play, null);

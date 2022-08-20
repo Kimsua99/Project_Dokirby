@@ -11,6 +11,6 @@ public class SettingPopup : UIPopup
     }
     public void OnClickHomeBtn()
     {
-        //Loading.Instance.LoadScene("");
+        Loading.Instance.LoadScene("Title");
     }
 }

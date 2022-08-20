@@ -71,4 +71,8 @@ public class TutorialView : UIView
     {
         UIViewManager.Instance.GoView(View.play, null);
     }
+    public void OnClickStartBtn()
+    {
+        Loading.Instance.LoadScene("Lobby");
+    }
 }

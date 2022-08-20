@@ -99,7 +99,7 @@ public class Dialogue : MonoBehaviour
             GameObject.Find("DialogPopup").SetActive(false);
         }
     }
-    IEnumerator NormalChat(string narration)// 타이핑 효과 -> 여기서 향의 세기에 따른 증류기 로직 결정 가능
+    IEnumerator NormalChat(string narration)// 
     {
         string writerText = "";
         //GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("typing");

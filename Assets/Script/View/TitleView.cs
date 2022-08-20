@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using JsonFx.Json;
-
+using UnityEngine.SceneManagement;
 public class TitleView : UIView
 {
     public class ClassData
@@ -13,8 +13,8 @@ public class TitleView : UIView
 
 
     [Header("UI")]
-    public Text Title;
-    public Text Version;
+    //public Text Title;
+    //public Text Version;
 
     [Header("Variable")]
     private string title;
@@ -53,8 +53,8 @@ public class TitleView : UIView
     // ui °»½Å
     private void UpdateUI()
     {
-        Title.text = title;
-        Version.text = Application.version;
+        //Title.text = title;
+        //Version.text = Application.version;
     }
 
 
@@ -62,7 +62,8 @@ public class TitleView : UIView
 
     public void OnClickStartBtn()
     {
-        UIViewManager.Instance.GoView(View.play, null);
+        //UIViewManager.Instance.GoView(View.play, null);
+        SceneManager.LoadScene("Lobby");
     }
     public void OnClickExitBtn()
     {

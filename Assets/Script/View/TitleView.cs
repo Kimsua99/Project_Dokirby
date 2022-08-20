@@ -6,6 +6,8 @@ using JsonFx.Json;
 using UnityEngine.SceneManagement;
 public class TitleView : UIView
 {
+    public AudioClip StartBtn;
+    public GameObject FadePannel;
     public class ClassData
     {
 
@@ -62,8 +64,14 @@ public class TitleView : UIView
 
     public void OnClickStartBtn()
     {
+        GameObject.Find("SFXManager").GetComponent<AudioSource>().Play();
         //UIViewManager.Instance.GoView(View.play, null);
-        SceneManager.LoadScene("Lobby");
+
+        GameObject.Find("Panel").gameObject.SetActive(false);
+
+        Invoke("SceneChange", 1f);
+        StartCoroutine(FadeIn());
+
     }
     public void OnClickExitBtn()
     {
@@ -72,5 +80,22 @@ public class TitleView : UIView
     public void OnClickCreditBtn()
     {
 
+    }
+
+    public void SceneChange()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
+
+    IEnumerator FadeIn()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            float f = i / 10.0f;
+            Color c = new Color(0, 0, 0, 255);
+            c.a = f;
+            FadePannel.GetComponent<Image>().color = c;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

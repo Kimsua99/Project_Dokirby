@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: KirbyAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637965990810000000
+  lastModified: 637966066631663771
   FileSizes:
   - Name: Desktop
     Value: 821536
@@ -157,7 +157,7 @@ MonoBehaviour:
   - {fileID: -5824379719870284897}
   StringsBanks:
   - {fileID: 6089195436375750238}
-  cacheTime: 637965990810000000
+  cacheTime: 637966066631681091
   cacheVersion: 10
 --- !u!114 &3138592090393132928
 MonoBehaviour:
@@ -255,7 +255,7 @@ MonoBehaviour:
   Path: KirbyAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637965990810000000
+  lastModified: 637966066631681091
   FileSizes:
   - Name: Desktop
     Value: 1118

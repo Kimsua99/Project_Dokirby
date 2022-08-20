@@ -9,6 +9,9 @@ public class CharacterChange : MonoBehaviour
     public void GetPattern(string Name)
     {
         patternName = Name;
+
+        Player.PatternTriggerAction?.Invoke(Name);
+
         switch (Name)
         {
             //case: "spring":

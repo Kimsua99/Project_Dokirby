@@ -222,6 +222,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7703514508406883148}
   - component: {fileID: 6315822321640998663}
+  - component: {fileID: 1923348586910506129}
+  - component: {fileID: 1358239787389077009}
   m_Layer: 7
   m_Name: SettingPopup
   m_TagString: Untagged
@@ -262,6 +264,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b964a41037c003d43aead8cb191b5ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  retryNum: 0
+--- !u!223 &1923348586910506129
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743497125715261471}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 3
+  m_TargetDisplay: 0
+--- !u!114 &1358239787389077009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743497125715261471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &3914625321360457691
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +314,7 @@ GameObject:
   - component: {fileID: 5560050980089389872}
   - component: {fileID: 6585401229106817430}
   - component: {fileID: 7159667810877936456}
+  - component: {fileID: 1090280215496327600}
   m_Layer: 7
   m_Name: PopupBack
   m_TagString: Untagged
@@ -340,6 +382,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
+--- !u!210 &1090280215496327600
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3914625321360457691}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 5
 --- !u!1 &4210453132720349074
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 5628648519615247808}
   StringsBanks:
   - {fileID: 663723396665606019}
-  cacheTime: 637965914370000000
+  cacheTime: 637965917776092961
   cacheVersion: 10
 --- !u!114 &663723396665606019
 MonoBehaviour:
@@ -67,7 +67,7 @@ MonoBehaviour:
   Path: KirbyAudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637965914370000000
+  lastModified: 637965917776092961
   FileSizes:
   - Name: Desktop
     Value: 816
@@ -87,7 +87,7 @@ MonoBehaviour:
   Path: KirbyAudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637965914370000000
+  lastModified: 637965917776073119
   FileSizes:
   - Name: Desktop
     Value: 767072

@@ -11,10 +11,23 @@ public class CharacterChange : MonoBehaviour
         patternName = Name;
         switch (Name)
         {
-            //case: "spring":
+            case "spring" : ChangeSpring();
+                break;
+            case "Umbrella": ChangeUmbrella();
+                break;
 
-            //break;
-
+            default:
+                break;
         }
+    }
+
+    public void ChangeSpring()
+    { 
+        
+    }
+
+    public void ChangeUmbrella()
+    {
+
     }
 }

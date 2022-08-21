@@ -34,7 +34,7 @@ public class FloorScroller : MonoBehaviour
     {
         for (int i = 0; i < floors.Length; i++)
         {
-            floors[i].position += new Vector3(-GameMaster.Instance.GetGameSpeed() * GameMaster.GameBackFlowSpeedWeight, 0, 0) * Time.deltaTime;
+            floors[i].position += new Vector3(-GameMaster.Instance.GetGameSpeed(), 0, 0) * Time.deltaTime;
 
             // 변경 시점
             if (floors[i].position.x + 1f < leftPosX) // 월드 pos 값,

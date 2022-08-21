@@ -11261,6 +11261,10 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 320
       objectReference: {fileID: 0}
+    - target: {fileID: 5741571180985766333, guid: e510fbb2c8549cc488697acddeb12e3f, type: 3}
+      propertyPath: m_Offset.x
+      value: -86.26
+      objectReference: {fileID: 0}
     - target: {fileID: 6422895089699227129, guid: e510fbb2c8549cc488697acddeb12e3f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -7,7 +7,7 @@ public class GameMaster : Singletone<GameMaster>
     public static readonly float GameSpeedStop = 0f;
     public static readonly float GameSpeedSlow = 1f;
     public static readonly float GameSpeedSlowByRain = 1f;
-    public static readonly float GameSpeedNormal = 7f;
+    public static readonly float GameSpeedNormal = 8.5f;
     public static readonly float GameBackFlowSpeedWeight = 0.5f;
 
     public enum PatternMode : int { Normal = 0, Spring, Umbrella, Grass, Count }

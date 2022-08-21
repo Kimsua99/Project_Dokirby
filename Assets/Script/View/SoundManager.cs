@@ -37,7 +37,7 @@ public class SoundManager : MonoBehaviour
     //public AudioClip Main;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         sfxAudioSource = this.transform.GetChild(0).gameObject.GetComponent<AudioSource>();
         TypeAudioSource = this.transform.GetChild(1).gameObject.GetComponent<AudioSource>();

@@ -145,7 +145,8 @@ public class Dialogue : MonoBehaviour
         }
         if (DSCnt == 12)
         {
-            GameObject.Find("DialogueView").SetActive(false);
+            Loading.Instance.LoadScene("Lobby");
+            //GameObject.Find("DialogueView").SetActive(false);
         }
     }
     IEnumerator NormalChat(string narration)// 

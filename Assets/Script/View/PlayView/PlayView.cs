@@ -15,7 +15,6 @@ public class PlayView : UIView
     {
         UpdateAll();
     }
-
     void Start()
     {
 
@@ -36,8 +35,22 @@ public class PlayView : UIView
     }
 
 
+
+    private float timeAcc = 0f;
+
     private void Update()
     {
-        SpeedTxt.text =  $"{GameMaster.Instance.GameSpeed}m/sec";
+        timeAcc += Time.deltaTime;
+        if(timeAcc >= 5f)
+        {
+            GameMaster.Instance.GameSpeedWeight += 0.01f;
+            timeAcc = 0f;
+        }
+
+        SpeedTxt.text =  $"{GameMaster.Instance.GetGameSpeed()}m/sec";
     }
+
+
+
+
 }

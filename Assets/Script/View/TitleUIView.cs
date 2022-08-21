@@ -84,7 +84,7 @@ public class TitleUIView : UIView
 
     public void SceneChange()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("Dialog");
     }
 
     IEnumerator FadeIn()

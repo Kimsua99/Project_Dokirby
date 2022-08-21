@@ -28,7 +28,7 @@ public class BGScroller : MonoBehaviour
 
         for (int i = 0; i < backgrounds.Length; i++)
         {
-            backgrounds[i].position += new Vector3(-GameMaster.Instance.GameSpeed, 0, 0) * Time.deltaTime;
+            backgrounds[i].position += new Vector3(-GameMaster.Instance.GetGameSpeed() * GameMaster.GameBackFlowSpeedWeight, 0, 0) * Time.deltaTime;
 
             // 변경 시점
             if (backgrounds[i].position.x < leftPosX)

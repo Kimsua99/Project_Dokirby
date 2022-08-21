@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     // 인게임 연출
     private IEnumerator SuperHeroLanding()
     {
-        GameMaster.Instance.GameSpeed = 0f;
+        GameMaster.Instance.GameSpeed = GameMaster.GameSpeedStop;
         isLanding = true;
 
         //FMODUnity.RuntimeManager.PlayOneShot();
@@ -179,7 +179,7 @@ public class Player : MonoBehaviour
                 {
                     // 산성비 => 사망처리
                     //GameMaster.Instance.GameSpeed = GameMaster.GameSpeedStop;
-                    GameMaster.Instance.GameSpeed = 2f;
+                    GameMaster.Instance.GameSpeed = GameMaster.GameSpeedSlowByRain;
                     GameMaster.Instance.isGameEnd = true;
 
 
@@ -217,7 +217,7 @@ public class Player : MonoBehaviour
         
         int index = 0;
         int deadCount = PlayerDeadByRaining.Length;
-        GameMaster.Instance.GameSpeed = 0f;
+        GameMaster.Instance.GameSpeed = GameMaster.GameSpeedStop;
 
         while (index < deadCount)
         {
@@ -226,6 +226,7 @@ public class Player : MonoBehaviour
             index++;
         }
 
+        yield return new WaitForSeconds(2f);
 
         UIPopupManager.Instance.Show(Popup.Setting);
         yield break;

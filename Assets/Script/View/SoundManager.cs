@@ -52,21 +52,25 @@ public class SoundManager : MonoBehaviour
             case "Click":
                 sfxAudioSource.clip = click;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "Start":
                 sfxAudioSource.clip = start;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "OK":
                 sfxAudioSource.clip = OK;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "Back":
                 sfxAudioSource.clip = back;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "Brush":
@@ -88,36 +92,37 @@ public class SoundManager : MonoBehaviour
             case "Change":
                 sfxAudioSource.clip = Change;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "ChangeX":
                 sfxAudioSource.clip = ChangeX;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "Drop":
                 sfxAudioSource.clip = Drop;
                 sfxAudioSource.loop = false;
-                break;
-
-            case "Rain":
-                sfxAudioSource.clip = Rain;
-                sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "GG":
                 sfxAudioSource.clip = GG;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "Brush1":
                 sfxAudioSource.clip = brush1;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
             case "Brush2":
                 sfxAudioSource.clip = brush2;
                 sfxAudioSource.loop = false;
+                sfxAudioSource.volume = 1f;
                 break;
 
         }
@@ -131,16 +136,23 @@ public class SoundManager : MonoBehaviour
             case "KType":
                 TypeAudioSource.clip = KType;
                 TypeAudioSource.loop = true;
+                TypeAudioSource.volume = 1f;
                 break;
 
             case "GType":
                 TypeAudioSource.clip = GType;
                 TypeAudioSource.loop = true;
+                TypeAudioSource.volume = 1f;
                 break;
 
             case "Walk":
                 TypeAudioSource.clip = Walk;
                 TypeAudioSource.loop = false;
+                TypeAudioSource.volume = 0.7f;
+                break;
+
+            case "None":
+                sfxAudioSource.clip = null;
                 break;
         }
         TypeAudioSource.Play();

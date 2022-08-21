@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SettingPopup : UIPopup
 {
-    public int retryNum = 0;
     public void OnClickRetryBtn()
     {
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Click");

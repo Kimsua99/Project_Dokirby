@@ -117,36 +117,54 @@ public class Dialogue : MonoBehaviour
     {
         DialogueStart = true;
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Click");
-        StopAll();
 
-        StartCoroutine(NormalChat(DS[DSCnt]));
-        SetImage(DSCnt);
-
-        DSCnt++;
-
-        if (DSCnt == 7)
+        if (DSCnt == 0)
         {
-            SceneEffect.SetActive(true);
-            CenterIMG.GetComponent<Image>().sprite = Scene1;
-            CenterIMG.GetComponent<Image>().SetNativeSize();
+            StopAll();
 
+            StartCoroutine(NormalChat(DS[DSCnt]));
+            SetImage(DSCnt);
+
+            DSCnt++;
         }
-        if (DSCnt == 8 || DSCnt == 9)
-        {
-            SceneEffect.SetActive(false);
-            CenterIMG.GetComponent<Image>().sprite = Alpa;
 
-        }
-        if (DSCnt == 11)
+        else if (DSCnt >= 1)
         {
-            SceneEffect.SetActive(true);
-            CenterIMG.GetComponent<Image>().sprite = Scene2;
-            CenterIMG.GetComponent<Image>().SetNativeSize();
-        }
-        if (DSCnt == 12)
-        {
-            Loading.Instance.LoadScene("Lobby");
-            //GameObject.Find("DialogueView").SetActive(false);
+
+            if (isDialogueEnd == true)
+            {
+                StopAll();
+
+                StartCoroutine(NormalChat(DS[DSCnt]));
+                SetImage(DSCnt);
+
+                DSCnt++;
+
+                if (DSCnt == 7)
+                {
+                    SceneEffect.SetActive(true);
+                    CenterIMG.GetComponent<Image>().sprite = Scene1;
+                    CenterIMG.GetComponent<Image>().SetNativeSize();
+
+                }
+                if (DSCnt == 8 || DSCnt == 9)
+                {
+                    SceneEffect.SetActive(false);
+                    CenterIMG.GetComponent<Image>().sprite = Alpa;
+
+                }
+                if (DSCnt == 11)
+                {
+                    SceneEffect.SetActive(true);
+                    CenterIMG.GetComponent<Image>().sprite = Scene2;
+                    CenterIMG.GetComponent<Image>().SetNativeSize();
+                }
+                if (DSCnt == 12)
+                {
+                    Loading.Instance.LoadScene("Lobby");
+                    //GameObject.Find("DialogueView").SetActive(false);
+                }
+            }
         }
     }
     IEnumerator NormalChat(string narration)// 

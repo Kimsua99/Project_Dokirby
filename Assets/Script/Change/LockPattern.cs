@@ -207,6 +207,7 @@ public class LockPattern : MonoBehaviour
             ColorGreen = true;
             FindObjectOfType<CharacterChange>().GetComponent<CharacterChange>().GetPattern("spring");
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Change");
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("None");
         }
 
 
@@ -216,6 +217,7 @@ public class LockPattern : MonoBehaviour
             ColorGreen = true;
             FindObjectOfType<CharacterChange>().GetComponent<CharacterChange>().GetPattern("Umbrella");
             GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySFX("Change");
+            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("None");
         }
 
 

@@ -120,7 +120,10 @@ public class Player : MonoBehaviour
                 curIndex = 0;
 
             PlayerImg.sprite = sprites[curIndex];
-            GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("Walk");
+            if (mode == GameMaster.PatternMode.Normal)
+            {
+                GameObject.Find("SoundManager").GetComponent<SoundManager>().playTyping("Walk");
+            }
             if (curIndex >= sprites.Length - 1)
                 curIndex = 0;
             else

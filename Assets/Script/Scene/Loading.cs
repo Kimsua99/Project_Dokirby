@@ -8,6 +8,8 @@ using UnityEngine.Events;
 
 public class Loading : MonoBehaviour
 {
+
+    public bool isSkipTrue = false;
     /// <summary>
     /// 기존 싱글톤 클래스를 상속하여 만들기엔, 가독성이 떨어질 염려로 임의로 싱글톤 코드를 구성하였음
     /// </summary>
